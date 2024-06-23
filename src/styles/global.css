@@ -1,0 +1,30 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: #000;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  letter-spacing: 4px;
+  background-image: url(https://i.imgur.com/ZyTab4O.png), url(https://i.imgur.com/ZyTab4O.png);
+  background-repeat: repeat-y, no-repeat;
+  background-position: top, center;
+  background-attachment: fixed, fixed;
+  background-color: #000;
+  background-size: auto, cover;
+}
+
+.module.content:first-of-type {
+    padding-top: 100px;
+}
+
+footer {
+    text-align: center;
+    background-color: rgba(0,0,0,.75);
+    position: sticky;
+    bottom: 0;
+    font-size: 11px;
+    padding: 20px;
+}

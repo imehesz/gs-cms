@@ -1,0 +1,144 @@
+.parallax-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.module {
+  margin-bottom: 0;
+}
+
+.module h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.module p {
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.module p:last-child {
+  margin-bottom: 0;
+}
+
+.module.content {
+  padding: 40px 0;
+}
+
+.module.parallax {
+  padding: 240px 0;
+  background-position: 50% 0;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode: screen;
+}
+
+.module.parallax h1 {
+  color: #000;
+  font-size: 54px;
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 0 10px #000;
+}
+
+.module.parallax h1 span {
+  font-size: 24px;
+}
+
+.module.parallax h1 span.tilt {
+  display: block;
+  transform: rotate(-10deg);
+}
+
+.module small {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.module h1 {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+.module h2 {
+  font-size: 36px;
+}
+
+.module h1,
+.module h2,
+.module small {
+  text-shadow: 0 0 10px #000;
+}
+
+.module h2::first-letter {
+  background-color: #FF1493;
+  padding: 10px 15px;
+  text-shadow: none;
+}
+
+.module p,
+.module ul {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  list-style: none;
+}
+
+.module.content img {
+    width: 100%;
+}
+
+.module {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.module.parallax-1 {
+  background-image: url(https://i.imgur.com/vD0Kur7.jpg);
+}
+
+.module.parallax-2 {
+  background-image: url(https://i.imgur.com/izk6cuX.jpg);
+}
+
+.module.parallax-3 {
+  background-image: url(https://i.imgur.com/lveXDGj.jpg);
+}
+
+.module.parallax-4 {
+  background-image: url(https://i.imgur.com/3OVC0Lw.jpg);
+}
+
+.module .btn {
+  color: #fff;
+  background-color: #FF1493;
+}
+
+@media (min-width: 600px) {
+  .module h2 {
+    font-size: 42px;
+  }
+
+  .module p {
+    font-size: 20px;
+  }
+
+  .module.parallax {
+    padding: 300px 0;
+  }
+
+  .module.parallax h1 {
+    font-size: 96px;
+  }
+
+  .module.parallax h1 span {
+    font-size: 70px;
+  }
+}
+
+@media (min-width: 960px) {
+  .module.parallax h1 {
+    font-size: 160px;
+  }
+}

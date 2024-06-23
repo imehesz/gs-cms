@@ -1,0 +1,18 @@
+/**
+ *
+ * GS CMS v1.0.0
+ *
+ * Copy this file to be custom.css and place custom CSS rules here.
+ * We hope you know what you're doing :)
+ *
+ */
+
+body { }
+
+.module .btn { }
+
+h2 { }
+
+.module h2::first-letter { }
+
+a { }

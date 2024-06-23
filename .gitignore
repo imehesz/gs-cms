@@ -1,0 +1,4 @@
+node_modules/*
+deploy*.sh
+build/*
+rsync_exclude.txt

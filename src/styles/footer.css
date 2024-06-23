@@ -1,0 +1,50 @@
+.footer .container-fluid {
+  height: auto;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
+
+footer .container-fluid a {
+  display: inline-block;
+  color: #ddd;
+  padding-left: 1em;
+}
+
+footer .container-fluid p {
+  display: inline-block;
+  color: #ddd;
+  padding-left: 1em;
+  padding-right: 2em;
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    text-align: center;
+    line-height: 30px;
+  }
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.calendar iframe,
+.hbpro-map iframe {
+  width: 100%;
+  height: 750px;
+  border: 0;
+}
