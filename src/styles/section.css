@@ -81,7 +81,6 @@
 
 .module p,
 .module ul {
-  background-color: rgba(0, 0, 0, 0.75);
   padding: 10px;
   list-style: none;
 }
@@ -91,7 +90,7 @@
 }
 
 .module {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .module.parallax-1 {
