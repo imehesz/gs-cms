@@ -30,6 +30,7 @@ function App() {
 
     const [backgrounds, setBackgrounds] = useState([])
     const [sections, setSections] = useState([])
+    const [cssLocal, setCssLocal] = useState(null)
     const [navLinks, setNavLinks] = useState([])
     const [brand, setBrand] = useState({ label: "IMstandup.com", url: "/" })
     const [showHero, setShowHero] = useState(false)
@@ -52,12 +53,6 @@ function App() {
     }
 
     useEffect(() => {
-        // adding custom CSS
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = `css/custom.css?v=${new Date().getTime()}`
-        document.head.appendChild(link)
-
         const fetchConfig = async () => {
             const config = await loadConfig();
             const data = await fetchDataFromSheet(`${config.G_SHEET}/values/CONFIG!A1:D500?key=${config.API_KEY}`);
@@ -104,8 +99,29 @@ function App() {
             }).filter(s => s != undefined))
         }
 
+        const fetchCss = async () => {
+            const config = await loadConfig()
+            const data = await fetchDataFromSheet(`${config.G_SHEET}/values/CSS!A1:A2?key=${config.API_KEY}`)
+
+            // if sheet has CSS set, it takes precedence over 
+            // the custom CSS from the file system
+            if( data && data[0] && data[0][0]) {
+                console.log('sheet has CSS')
+                let styleElement = document.createElement('style')
+                styleElement.innerHTML = data[0][0]
+                document.head.appendChild(styleElement)
+            } else {
+                console.log('loading custom CSS')
+                const link = document.createElement('link')
+                link.rel = 'stylesheet'
+                link.href = `css/custom.css?v=${new Date().getTime()}`
+                document.head.appendChild(link)
+            }
+        }
+
         fetchConfig()
         fetchSections()
+        fetchCss()
     }, []);
 
     useEffect(() => {
