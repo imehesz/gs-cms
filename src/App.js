@@ -4,6 +4,7 @@ import PromoHeader from './components/PromoHeader';
 import Section from './components/Section';
 import CustomNavbar from './components/Navbar';
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import loadConfig, { fetchDataFromSheet, getPropFromDriveData } from './utils/config'
@@ -154,7 +155,11 @@ function App() {
 
         {sections.map((section) => (
             <Section title={section.sectionLabel} id={section.sectionID} key={section.sectionID} hidden={section?.sectionContent?.startsWith('http')}>
-                <ReactMarkdown rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}>{section.sectionContent}</ReactMarkdown>
+                <ReactMarkdown 
+                    rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}
+                    remarkPlugins={[remarkGfm]}>
+                        {section.sectionContent}
+                </ReactMarkdown>
             </Section>
         ))}
 
