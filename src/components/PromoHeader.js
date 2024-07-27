@@ -7,11 +7,11 @@ import "../styles/promo-header.css"
 const PromoHeader = () => {
     const [promoBgImg, setPromoBgImg] = useState('https://i.imgur.com/vD0Kur7.jpg')
     const [showTitle, setShowTitle] = useState(false)
-    const [headerTitle, setHeaderTitle] = useState('IMRE MEHESZ')
-    const [headerSubTitle, setHeaderSubTitle] = useState('Actor // Male Model')
-    const [heroMotto, setHeroMotto] = useState('True medicine is laughter.')
-    const [heroButtonLabel, setHeroButtonLabel] = useState('Book Now!')
-    const [heroButtonUrl, setHeroButtonUrl] = useState('https://www.google.com')
+    const [headerTitle, setHeaderTitle] = useState('')
+    const [headerSubTitle, setHeaderSubTitle] = useState('')
+    const [heroMotto, setHeroMotto] = useState('')
+    const [heroButtonLabel, setHeroButtonLabel] = useState('')
+    const [heroButtonUrl, setHeroButtonUrl] = useState('')
 
     useEffect(() => {
         const fetchPromoData = async () => {

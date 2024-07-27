@@ -33,7 +33,7 @@ function App() {
     const [sections, setSections] = useState([])
     const [cssLocal, setCssLocal] = useState(null)
     const [navLinks, setNavLinks] = useState([])
-    const [brand, setBrand] = useState({ label: "IMstandup.com", url: "/" })
+    const [brand, setBrand] = useState({ label: "", url: "/" })
     const [showHero, setShowHero] = useState(false)
 
     const _defaultMetaTags = {

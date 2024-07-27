@@ -6,11 +6,7 @@ import '../styles/navbar.css'
 const CustomNavbar = ({ links, brand }) => {
   const defaultBrandObj = {}
 
-  const defaultLinks = [
-    { label: "HOME", url: "#" },
-    { label: "ABOUT", url: "#" },
-    { label: "PORTFOLIO", url: "#" }
-  ];
+  const defaultLinks = [];
 
   const [scrolled, setScrolled] = useState(false)
 
