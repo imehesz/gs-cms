@@ -102,17 +102,24 @@ function App() {
 
         const fetchCss = async () => {
             const config = await loadConfig()
-            const data = await fetchDataFromSheet(`${config.G_SHEET}/values/CSS!A1:A2?key=${config.API_KEY}`)
+            const data = await fetchDataFromSheet(`${config.G_SHEET}/values/CSS!A1:A500?key=${config.API_KEY}`)
 
             // if sheet has CSS set, it takes precedence over 
             // the custom CSS from the file system
             if( data && data[0] && data[0][0]) {
-                console.log('sheet has CSS')
+                let cssString = ""
+
+                for(let cssList of data) {
+                    if( cssList.length > 0) {
+                        cssString += cssList.join('\n')
+                    }
+                }
+                
                 let styleElement = document.createElement('style')
-                styleElement.innerHTML = data[0][0]
+                styleElement.type = "text/css"
+                styleElement.appendChild(document.createTextNode(cssString))
                 document.head.appendChild(styleElement)
             } else {
-                console.log('loading custom CSS')
                 const link = document.createElement('link')
                 link.rel = 'stylesheet'
                 link.href = `css/custom.css?v=${new Date().getTime()}`
