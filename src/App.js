@@ -8,7 +8,8 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import loadConfig, { fetchDataFromSheet, getPropFromDriveData } from './utils/config'
-import { setMetaTags } from './utils/imxUtil';
+import { setMetaTags, dateToUnix } from './utils/imxUtil';
+import moment from 'moment'
 
 import './styles/global.css';
 
@@ -82,11 +83,12 @@ function App() {
 
         const fetchSections = async () => {
             const config = await loadConfig();
-            const data = await fetchDataFromSheet(`${config.G_SHEET}/values/SECTIONS!A1:D500?key=${config.API_KEY}`);
+            const data = await fetchDataFromSheet(`${config.G_SHEET}/values/SECTIONS!A1:E500?key=${config.API_KEY}`);
 
             const rows = data;
             const headers = rows[0];
             const dataRows = rows.slice(1);
+            const thisIsNow = moment().unix()
 
             setSections(dataRows.map(row => {
                 if(row.length != 0) {
@@ -94,10 +96,11 @@ function App() {
                         sectionID: row[0],
                         sectionLabel: row[1],
                         showInNav: row[2] === 'Y',
-                        sectionContent: row[3]
+                        sectionContent: row[3],
+                        publishDate: dateToUnix(row[4])
                     }
                 }
-            }).filter(s => s != undefined))
+            }).filter(s => s != undefined && s.publishDate <= thisIsNow))
         }
 
         const fetchCss = async () => {

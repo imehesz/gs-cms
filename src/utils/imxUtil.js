@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios from 'axios'
+import moment from 'moment'
 
 const getPropFromDriveData = (data, prop) => {
   let retval;
@@ -16,9 +17,15 @@ const getPropFromDriveData = (data, prop) => {
 };
 
 const fetchDataFromSheet = async (url) => {
-  const response = await axios.get(url);
-  return response.data.values;
+    const response = await axios.get(url)
+    return response.data.values
 };
+
+/**
+ * @param {String} dateStr 
+ * @returns UNIX timestamp
+ */
+const dateToUnix = ( dateStr = new Date() ) => moment(dateStr).unix()
 
 
 const setMetaTags = ({ title, description, keywords, author, canonicalUrl, ogTitle, ogDescription, ogUrl, ogType, ogImage, twitterCard, twitterTitle, twitterDescription, twitterImage }) => {
@@ -81,4 +88,4 @@ const setMetaTags = ({ title, description, keywords, author, canonicalUrl, ogTit
     setPropertyMetaTag('twitter:image', twitterImage);
 }
 
-export { getPropFromDriveData, fetchDataFromSheet, setMetaTags };
+export { getPropFromDriveData, fetchDataFromSheet, setMetaTags, dateToUnix }
