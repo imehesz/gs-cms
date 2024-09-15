@@ -176,6 +176,7 @@ function App() {
 
       <footer>
             Made by <strong>Sad Boi Works</strong> with :) & ♥
+            <p><a href="./index-static.html">Static Index</a></p>
       </footer>
     </div>
   );

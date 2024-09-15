@@ -27,3 +27,8 @@ footer {
     font-size: 11px;
     padding: 20px;
 }
+
+footer p {
+    margin: 0;
+    font-size: 6px;
+}
